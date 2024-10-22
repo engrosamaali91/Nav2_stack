@@ -1,0 +1,30 @@
+#in order to make a map i am using cartographer, not gmapping
+
+for that i added launch and config directory in navigation package folder 
+
+#launch gazebo 
+```
+export TURTLEBOT3_MODEL=waffle
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+```
+
+
+#run rviz2
+In seperate terminal open rviz2 
+```
+rviz2```
+and add the map to the fixed frame 
+Add Odometry and set the topic to ```/odom``` and Add Map and set the topic to ```/map```
+
+
+# Run launch file for cartographer
+```
+ros2 launch navigation mapping.launch.py
+```
+#save the map in config direcotry while rviz is opened. note tb3_map is just the name of the map
+
+``` ros2 run nav2_map_server map_saver_cli -f tb3_map
+```
+This will generate two file one with .pgm extension and the other with .yaml extension 
+
+
