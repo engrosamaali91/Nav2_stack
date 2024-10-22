@@ -23,6 +23,13 @@ install(TARGETS
 ogpubnode
   DESTINATION lib/${PROJECT_NAME})
 
+# target directory of launch and its destination 
+install(DIRECTORY launch/
+        DESTINATION share/${PROJECT_NAME}/launch)
+#  target directory of config and its destination 
+install(DIRECTORY config/
+        DESTINATION share/${PROJECT_NAME}/config)
+
 #define python scripts 
 # install(PROGRAMS
 # scripts/py_node.py
