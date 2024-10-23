@@ -1,3 +1,8 @@
+#install cartographer
+```
+sudo apt install ros-$ROS_DISTRO-cartographer 
+```
+
 #in order to make a map i am using cartographer, not gmapping
 
 for that i added launch and config directory in navigation package folder 
@@ -33,3 +38,9 @@ ros2 run nav2_map_server map_saver_cli -f tb3_map
 This will generate two file one with .pgm extension and the other with .yaml extension 
 
 
+
+### Plugin nav2 stack
+- amcl node for localization, it gives predictions, estimates and location of the robot
+- BT navigator: for giving goals in a simple manner
+- Costmaps:, global i.e looking through the map and local i.e using sensor data
+- Planners: For motion planning for example DWB 
