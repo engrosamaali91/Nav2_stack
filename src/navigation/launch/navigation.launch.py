@@ -12,7 +12,7 @@ def generate_launch_description():
     config_dir = os.path.join(get_package_share_directory('navigation'), 'config')
     map_file = os.path.join(config_dir, 'tb3_map.yaml')
     param_file = os.path.join(config_dir, 'tb3_nav_params.yaml')
-    rviz_config_dir = os.path.join(config_dir, 'navigation.rviz')
+    rviz_config_dir = os.path.join(config_dir, 'tb3_nav2.rviz')
 
 
     return LaunchDescription([
