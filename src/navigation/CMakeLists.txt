@@ -15,13 +15,17 @@ find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 
+#New edition for python code 
+find_package(ament_cmake_python REQUIRED)
+find_package(rclpy REQUIRED)
+
 
 add_executable(ogpubnode src/occupancy_publisher.cpp)
 ament_target_dependencies(ogpubnode rclcpp std_msgs sensor_msgs ament_cmake nav_msgs)
 
 install(TARGETS
 ogpubnode
-  DESTINATION lib/${PROJECT_NAME})
+DESTINATION lib/${PROJECT_NAME})
 
 # target directory of launch and its destination 
 install(DIRECTORY launch/
@@ -30,10 +34,11 @@ install(DIRECTORY launch/
 install(DIRECTORY config/
         DESTINATION share/${PROJECT_NAME}/config)
 
+
+ament_python_install_package(${PROJECT_NAME})
 #define python scripts 
-# install(PROGRAMS
-# scripts/py_node.py
-#   DESTINATION lib/${PROJECT_NAME})
+install(PROGRAMS scripts/single_goal_nav.py
+        DESTINATION lib/${PROJECT_NAME})
 
 
 if(BUILD_TESTING)
