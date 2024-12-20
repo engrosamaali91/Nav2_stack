@@ -3,6 +3,12 @@
 sudo apt install ros-$ROS_DISTRO-cartographer 
 ```
 
+
+alternatively i could make a map suing slam toolbot, change the frame id to odom if needed
+```
+ros2 run slam_toolbox async_slam_toolbox_node 
+```
+
 #in order to make a map i am using cartographer, not gmapping
 
 for that i added launch and config directory in navigation package folder 
